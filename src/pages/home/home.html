@@ -1,0 +1,53 @@
+<ion-header>
+	<ion-navbar color="violet">
+		<div class="headertitle">
+			<ion-row>
+				<ion-col>
+					<img class="image" src="assets/imgs/whatsapp.png"/>
+				</ion-col>
+				<ion-col class="secondcol">
+					<ion-input type="tel" placeholder="Mobile number">
+
+					</ion-input>
+				</ion-col>
+				<ion-col class="thirdcol">
+					<button ion-button small outline style="border:none;color:white;font-weight: bold;font-size: 1.5rem;">send</button>
+				</ion-col>
+			</ion-row>
+		</div>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="bg">
+	<ion-searchbar (keyup)="onKeyUp($event)" class="search"></ion-searchbar>
+	<ion-list>
+		<ion-item *ngFor="let contact of contactsFound">
+			<h2>{{contact?.displayName}}</h2>
+			<p>
+				{{contact?.phoneNumbers[0].value}}
+			</p>
+			<div item-right>
+				<img class="whatsappimage" src="assets/imgs/whatsapp.png"/>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>
+<ion-footer>
+	<ion-segment transparent no-border style="color:grey;background-color: white" color="none">
+		<ion-segment-button value="home" style="color:black ;border:none">
+			<ion-icon name="ios-contacts" style="color:#4f1480;zoom:0.95;font-weight: bolder"></ion-icon>
+			<div
+				style="margin-top: -23px !important;color:#4f1480;text-transform: capitalize;font-weight: bolder;font-size: 1.15rem">
+				Contacts
+			</div>
+		</ion-segment-button>
+		<ion-segment-button (click)="page()" value="search" style="color:black;border:none">
+			<ion-icon name="ios-list" style="color:#4c4d4d;zoom:0.95;font-weight: bolder">
+			</ion-icon>
+			<div
+				style="margin-top: -23px !important;color:#4c4d4d;text-transform: capitalize;font-weight: bolder;font-size: 1.15rem">
+				Statistics
+			</div>
+		</ion-segment-button>
+	</ion-segment>
+</ion-footer>

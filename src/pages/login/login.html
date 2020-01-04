@@ -1,0 +1,47 @@
+
+<ion-header>
+  <ion-navbar color="violet">
+    <div class="Title"> 
+      <img src="assets/imgs/user.png" width="50" alt="" />
+      <p style="color:white;font-size: 1.4em;font-weight: bold;">Login</p>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="MainArea">
+    <br/>
+    <br/>
+    <form id="commonform" [formGroup]="loginForm" (ngSubmit)="dologin(loginForm.value)">
+
+      <div class="login-form">
+        <div class="form-group">
+          <label class="labeltext">Mobile Number</label>
+          <ion-input type="tel" name="mobile" maxlength="10" formControlName="mobile" class="form-control" 
+          [ngClass]="{'error-border':!loginForm.controls['mobile'].valid}"></ion-input>
+          <div class="error-message" *ngIf="loginForm.controls['mobile'].hasError('minlength')&&loginForm.controls['mobile'].touched">
+          * Mobile No Should be 10 digit</div>
+          <div class="error-message" *ngIf="loginForm.controls['mobile'].hasError('maxlength')&&loginForm.controls['mobile'].touched">
+          * Mobile No Should not exceed 10 digit</div>
+        </div>
+
+
+        <div class="form-group">
+          <label class="labeltext">Password</label>
+          <ion-input type="password" name="password" formControlName="password" class="form-control" 
+          [ngClass]="{'error-border':!loginForm.controls['password'].valid}" clearOnEdit="false"></ion-input>
+          <div class="error-message" *ngIf="loginForm.controls['password'].hasError('minlength')&&loginForm.controls['password'].touched">
+          * Password Should not less than 6 characters</div>
+        </div>
+        
+        <div class="forgot" (click)="registration()">Create a new account</div>
+
+      </div>
+      
+      <div class="submit-btn">
+        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+        <!-- <div style="text-align: center;" (click)="back()" class="btn btn-primary mt-15">Back</div> -->
+      </div>
+      
+    </form>
+  </div>
+</ion-content>
