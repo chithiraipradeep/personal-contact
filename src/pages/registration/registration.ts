@@ -21,8 +21,7 @@ export class RegistrationPage {
   ngOnInit() {
     this.reguserForm = this.formBuilder.group({
       'mobile': ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
-      'password': ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(20)])],
-      'passwordcon': ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(20)])]
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(20)])]
     });
   }
 
@@ -35,12 +34,16 @@ export class RegistrationPage {
 
 
   douserSignUp(data) {
-
-    if (data.password == data.passwordcon) {
-      this.navCtrl.setRoot('LoginPage');
-    } else {
-      alert("Password mismatch");
-    }
+      let param = {
+        mobile: data.mobile,
+        password: data.password
+      };
+      this.authprovider.createuser(param)
+        .then((result: any) => {
+          console.log(result.message);
+        });
+      //this.navCtrl.setRoot('LoginPage');
+   
   }
 
   async presentToast(msg) {

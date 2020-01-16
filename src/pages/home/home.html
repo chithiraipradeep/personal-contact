@@ -1,17 +1,17 @@
 <ion-header>
-	<ion-navbar color="violet">
+	<ion-navbar color="custom">
 		<div class="headertitle">
 			<ion-row>
 				<ion-col>
-					<img class="image" src="assets/imgs/whatsapp.png"/>
+					<img class="image" src="assets/imgs/whatsapp.png" />
 				</ion-col>
 				<ion-col class="secondcol">
 					<ion-input type="tel" placeholder="Mobile number">
-
 					</ion-input>
 				</ion-col>
 				<ion-col class="thirdcol">
-					<button ion-button small outline style="border:none;color:white;font-weight: bold;font-size: 1.5rem;">send</button>
+					<button ion-button small outline
+						style="border:none;color:white;font-weight: bold;font-size: 1.5rem;">send</button>
 				</ion-col>
 			</ion-row>
 		</div>
@@ -20,14 +20,14 @@
 
 <ion-content class="bg">
 	<ion-searchbar (keyup)="onKeyUp($event)" class="search"></ion-searchbar>
-	<ion-list>
-		<ion-item *ngFor="let contact of contactsFound">
-			<h2>{{contact?.displayName}}</h2>
-			<p>
-				{{contact?.phoneNumbers[0].value}}
+	<ion-list style="border:white">
+		<ion-item *ngFor="let contact of allContacts">
+			<h2 style="color: white;">{{contact.name}}</h2>
+			<p style="color: white;"> 
+				{{contact.number}}
 			</p>
 			<div item-right>
-				<img class="whatsappimage" src="assets/imgs/whatsapp.png"/>
+				<img class="whatsappimage" src="assets/imgs/whatsapp.png" />
 			</div>
 		</ion-item>
 	</ion-list>
@@ -35,9 +35,9 @@
 <ion-footer>
 	<ion-segment transparent no-border style="color:grey;background-color: white" color="none">
 		<ion-segment-button value="home" style="color:black ;border:none">
-			<ion-icon name="ios-contacts" style="color:#4f1480;zoom:0.95;font-weight: bolder"></ion-icon>
+			<ion-icon name="ios-contacts" style="color:#7025b1;zoom:0.95;font-weight: bolder"></ion-icon>
 			<div
-				style="margin-top: -23px !important;color:#4f1480;text-transform: capitalize;font-weight: bolder;font-size: 1.15rem">
+				style="margin-top: -23px !important;color:#7025b1;text-transform: capitalize;font-weight: bolder;font-size: 1.15rem">
 				Contacts
 			</div>
 		</ion-segment-button>

@@ -8,7 +8,7 @@ $font-path: "../assets/fonts";
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
-// http://ionicframework.com/docs/theming/rtl-support/
+// http       ://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 
 
@@ -33,16 +33,15 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$colors: (
-	primary:    #488aff,
-	secondary:  #32db64,
-	danger:     #f53d3d,
-	light:      #f4f4f4,
-	dark:       #222,
-	white:      #fff,
-	blue:       #4dade3,
-	violet:     #4f1480
-	);
+$colors: (primary: #488aff,
+	secondary: #32db64,
+	danger: #f53d3d,
+	light: #f4f4f4,
+	dark: #222,
+	white: #fff,
+	blue: #4dade3,
+	violet: #4f1480,
+	custom:#7025b1);
 
 
 // App iOS Variables
@@ -56,17 +55,17 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-$segment-button-md-height:45px;
-$segment-button-ios-height:44px;
+$segment-button-md-height     :45px;
+$segment-button-ios-height    :44px;
 $segment-button-ios-text-color: none !important;
-$segment-button-md-text-color: none !important;
+$segment-button-md-text-color : none !important;
 
 
 $segment-button-ios-button-height:3.7rem;
-$segment-button-ios-line-height:3.5rem;
-$segment-button-md-button-height:3.5rem;
-$segment-button-md-line-height:3.6rem;
-$segment-button-color:none;
+$segment-button-ios-line-height  :3.5rem;
+$segment-button-md-button-height :3.5rem;
+$segment-button-md-line-height   :3.6rem;
+$segment-button-color            :none;
 
 
 // App Windows Variables
@@ -74,8 +73,10 @@ $segment-button-color:none;
 // Windows only Sass variables can go here
 
 @import url(http://fonts.googleapis.com/css?family=Nanum+Gothic);
-$font-family-md-base: "Nanum Gothic",sans-serif !default;
-$font-family-ios-base: "Nanum Gothic",sans-serif !default;
+$font-family-md-base: "Nanum Gothic",
+sans-serif !default;
+$font-family-ios-base: "Nanum Gothic",
+sans-serif !default;
 
 
 // App Theme

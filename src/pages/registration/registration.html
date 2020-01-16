@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="violet">
+  <ion-navbar color="custom">
     <div class="Title">
       <img src="assets/imgs/user.png" width="50" alt="" />
       <h2 style="color:white">Register</h2>
@@ -42,16 +42,6 @@
               *ngIf="reguserForm.controls['password'].hasError('minlength')&&reguserForm.controls['password'].touched">
               * Password Should not less than 6 digit</div>
           </div>
-
-          <div class="form-group">
-            <label class="labeltext">Confirm Password</label>
-            <ion-input type="password" name="passwordcon" formControlName="passwordcon" class="form-control"
-              [ngClass]="{'error-border':!reguserForm.controls['passwordcon'].valid}" clearOnEdit="false"></ion-input>
-            <div class="error-message"
-              *ngIf="reguserForm.controls['passwordcon'].hasError('minlength')&&reguserForm.controls['passwordcon'].touched">
-              * Password Should not less than 6 digit</div>
-          </div>
-
         </div>
         <div class="submit-btn">
           <button type="submit" [disabled]="!reguserForm.valid" class="btn btn-primary">Register</button>

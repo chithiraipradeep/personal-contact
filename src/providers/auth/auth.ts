@@ -1,4 +1,4 @@
-import { Http, Headers, RequestOptions } from "@angular/http";
+import{HttpClient}from '@angular/common/http'
 import { Injectable } from '@angular/core';
 
 /*
@@ -10,22 +10,15 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthProvider {
 
-  constructor(public http: Http) {
+  constructor(public http: HttpClient) {
     console.log('Hello AuthProvider Provider');
   }
   createuser(param) {
-    var headers = new Headers();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json');
-    let options = new RequestOptions({
-      headers: headers
-    });
-
 
     return new Promise((resolve, reject) => {
-      this.http.post('http://18.223.116.203/Authentication/ContactSignup', param, options)
+      this.http.post('http://app.digitalbizcards.in/api/login', param)
         .subscribe((res) => {
-          resolve(res.json());
+          resolve(res);
         }
           , (err) => {
             reject(err);
@@ -34,24 +27,5 @@ export class AuthProvider {
 
   }
 
-  userlogin(param) {
-    var headers = new Headers();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json');
-    let options = new RequestOptions({
-      headers: headers
-    });
-
-
-    return new Promise((resolve, reject) => {
-      this.http.post('http://18.223.116.203/Authentication/LoginUser', param, options)
-        .subscribe((res) => {
-          resolve(res.json());
-        }
-          , (err) => {
-            reject(err);
-          });
-    });
-
-  }
+  
 }
