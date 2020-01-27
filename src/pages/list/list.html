@@ -47,16 +47,24 @@
 <ion-footer>
 	<ion-segment transparent no-border style="color:grey;background-color: white" color="none">
 		<ion-segment-button  (click)="page()" value="home"  style="color:black ;border:none">
-			<ion-icon name="ios-contacts"  style="color:#4c4d4d;zoom:0.95;font-weight: bolder"></ion-icon>
+			<ion-icon name="md-contact"  style="color:#4c4d4d;zoom:0.95;font-weight: bolder"></ion-icon>
 			<div style="margin-top: -23px !important;color:#4c4d4d;text-transform: capitalize;font-weight: bolder;font-size: 1.15rem">
 				Contacts
 			</div>
 		</ion-segment-button>
 		<ion-segment-button  value="search"  style="color:black;border:none">
-			<ion-icon name="ios-list" style="color:#7025b1;zoom:0.95;font-weight: bolder">
+			<ion-icon name="md-list" style="color:#7025b1;zoom:0.95;font-weight: bolder">
 			</ion-icon>
 			<div style="margin-top: -23px !important;color:#7025b1;text-transform: capitalize;font-weight: bolder;font-size: 1.15rem">
 				Statistics
+			</div>
+		</ion-segment-button>
+		<ion-segment-button (click)="openmodel()" value="search" style="color:black;border:none">
+			<ion-icon name="md-paper" style="color:#4c4d4d;zoom:0.95;font-weight: bolder">
+			</ion-icon>
+			<div
+				style="margin-top: -23px !important;color:#4c4d4d;text-transform: capitalize;font-weight: bolder;font-size: 1.15rem">
+				pdf
 			</div>
 		</ion-segment-button>
 	</ion-segment>

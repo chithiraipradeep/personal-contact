@@ -6,27 +6,30 @@
 					<img class="image" src="assets/imgs/whatsapp.png" />
 				</ion-col>
 				<ion-col class="secondcol">
-					<ion-input type="tel" placeholder="Mobile number">
+					<ion-input type="tel" placeholder="Mobile number" [(ngModel)]="number"
+						(ngModelChange)="getvalue(number)">
 					</ion-input>
 				</ion-col>
-				<ion-col class="thirdcol">
+				<ion-col class="thirdcol" (click)="share()">
 					<button ion-button small outline
 						style="border:none;color:white;font-weight: bold;font-size: 1.5rem;">send</button>
 				</ion-col>
 			</ion-row>
 		</div>
+		<ion-searchbar (keyup)="onKeyUp($event)" class="searchcss" placeholder="Search MobileNo or Name">
+		</ion-searchbar>
 	</ion-navbar>
 </ion-header>
 
 <ion-content class="bg">
-	<ion-searchbar (keyup)="onKeyUp($event)" class="search"></ion-searchbar>
+
 	<ion-list style="border:white">
 		<ion-item *ngFor="let contact of allContacts">
 			<h2 style="color: white;">{{contact.name}}</h2>
-			<p style="color: white;"> 
+			<p style="color: white;">
 				{{contact.number}}
 			</p>
-			<div item-right>
+			<div item-right (click)="shareviawhatsapp(contact.number)">
 				<img class="whatsappimage" src="assets/imgs/whatsapp.png" />
 			</div>
 		</ion-item>
@@ -35,18 +38,26 @@
 <ion-footer>
 	<ion-segment transparent no-border style="color:grey;background-color: white" color="none">
 		<ion-segment-button value="home" style="color:black ;border:none">
-			<ion-icon name="ios-contacts" style="color:#7025b1;zoom:0.95;font-weight: bolder"></ion-icon>
+			<ion-icon name="md-contact" style="color:#7025b1;zoom:0.95;font-weight: bolder"></ion-icon>
 			<div
 				style="margin-top: -23px !important;color:#7025b1;text-transform: capitalize;font-weight: bolder;font-size: 1.15rem">
 				Contacts
 			</div>
 		</ion-segment-button>
 		<ion-segment-button (click)="page()" value="search" style="color:black;border:none">
-			<ion-icon name="ios-list" style="color:#4c4d4d;zoom:0.95;font-weight: bolder">
+			<ion-icon name="md-list" style="color:#4c4d4d;zoom:0.95;font-weight: bolder">
 			</ion-icon>
 			<div
 				style="margin-top: -23px !important;color:#4c4d4d;text-transform: capitalize;font-weight: bolder;font-size: 1.15rem">
 				Statistics
+			</div>
+		</ion-segment-button>
+		<ion-segment-button (click)="openmodel()" value="search" style="color:black;border:none">
+			<ion-icon name="md-paper" style="color:#4c4d4d;zoom:0.95;font-weight: bolder">
+			</ion-icon>
+			<div
+				style="margin-top: -23px !important;color:#4c4d4d;text-transform: capitalize;font-weight: bolder;font-size: 1.15rem">
+				Pdf
 			</div>
 		</ion-segment-button>
 	</ion-segment>

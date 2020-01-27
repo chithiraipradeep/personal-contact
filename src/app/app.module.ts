@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
 import { Contacts} from '@ionic-native/contacts';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { Contacts} from '@ionic-native/contacts';
   { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
     Contacts,
+    SocialSharing,
   ]
 })
 export class AppModule { }

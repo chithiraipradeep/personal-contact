@@ -27,6 +27,9 @@
 	align-content: center;
 }
 
+.toolbar {
+	background: #7025b1;
+}
 
 .login-form {
 	padding: 30px;
@@ -113,3 +116,28 @@ ion-header ion-icon.back-button-icon.icon {
 .back-button-icon-ios {
 	color: white;
 }
+
+.modalcss {
+  .modal-wrapper {
+	max-height   : 350px;
+	max-width    : 350px;
+	position     : relative;
+	top          : 20%;
+	left         : 0%;
+	right        : 0%;
+	bottom       : 0%;
+	align-items  : center;
+	align-content: center;
+	text-align   : center;
+	margin       : auto;
+	border-radius: 10px;
+	overflow     : hidden;
+}
+
+}
+
+ion-modal {
+	&.modalcss{
+	  background: rgba(0,0,0,.4);
+	}
+  }
