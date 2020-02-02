@@ -23,7 +23,7 @@ export class LoginPage {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       'mobile': ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
-      'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
     });
   }
   ionViewDidLoad() {
@@ -41,7 +41,28 @@ export class LoginPage {
 
 
   async dologin(data) {
-    this.navCtrl.setRoot('HomePage');
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: 'Please wait...'
+    });
+
+    loading.present();
+    this.authprovider.login(data.mobile,data.password)
+    .then((result: any) => {
+      if(result.status == true){
+        loading.dismiss();
+        this.navCtrl.setRoot('HomePage');
+      }else{
+        loading.dismiss();
+        const toast = this.toastController.create({
+          message: result.message,
+          duration: 3000,
+          position: 'bottom',
+          cssClass: 'changeToast'
+        });
+        toast.present();
+      }
+    });
   }
 
   async presentToast(msg) {
