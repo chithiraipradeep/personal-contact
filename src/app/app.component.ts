@@ -9,7 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = 'LoginPage';
+  rootPage: any;
 
   pages: Array<{ title: string, component: any,icon:any }>;
 
@@ -18,7 +18,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Category', component: 'HomePage',icon:'ios-home-outline' },
+    { title: 'Category', component: 'HomePage',icon:'ios-home-outline' },
     ];
 
   }
@@ -29,6 +29,16 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleLightContent();
       this.splashScreen.hide();
+
+
+      let userId=localStorage.getItem('userId');
+      console.log(userId);
+      if(userId!=undefined&&userId!=null&&userId!=""){
+        this.rootPage='HomePage';
+      }
+      else{
+        this.rootPage='LoginPage';
+      }
     });
   }
 

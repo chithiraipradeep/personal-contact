@@ -30,7 +30,7 @@
           <ion-input type="password" name="password" formControlName="password" class="form-control" 
           [ngClass]="{'error-border':!loginForm.controls['password'].valid}" clearOnEdit="false"></ion-input>
           <div class="error-message" *ngIf="loginForm.controls['password'].hasError('minlength')&&loginForm.controls['password'].touched">
-          * Password Should not less than 6 characters</div>
+          * Password Should not less than 4 characters</div>
         </div>
         
         <div class="forgot" (click)="registration()">Create a new account</div>

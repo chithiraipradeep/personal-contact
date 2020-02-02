@@ -21,7 +21,7 @@ export class RegistrationPage {
   ngOnInit() {
     this.reguserForm = this.formBuilder.group({
       'mobile': ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
-      'password': ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(20)])]
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(20)])]
     });
   }
 
@@ -34,16 +34,30 @@ export class RegistrationPage {
 
 
   douserSignUp(data) {
-      let param = {
-        mobile: data.mobile,
-        password: data.password
-      };
-      this.authprovider.createuser(param)
-        .then((result: any) => {
-          console.log(result.message);
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: 'Please wait...'
+    });
+
+    loading.present();
+    this.authprovider.createuser(data.mobile,data.password)
+    .then((result: any) => {
+      if(result.status == true){
+        loading.dismiss();
+        this.navCtrl.setRoot('LoginPage');
+      }else{
+        loading.dismiss();
+        const toast = this.toastController.create({
+          message: result.message,
+          duration: 3000,
+          position: 'bottom',
+          cssClass: 'changeToast'
         });
-      //this.navCtrl.setRoot('LoginPage');
-   
+        toast.present();
+      }
+    });
+    //this.navCtrl.setRoot('LoginPage');
+
   }
 
   async presentToast(msg) {

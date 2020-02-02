@@ -14,12 +14,6 @@
       <form id="commonform" [formGroup]="reguserForm" (ngSubmit)="douserSignUp(reguserForm.value)">
 
         <div class="login-form">
-
-
-
-
-
-
           <div class="form-group">
             <label class="labeltext">Mobile Number</label>
             <ion-input type="tel" name="mobile" maxlength="10" formControlName="mobile" class="form-control"
@@ -40,7 +34,7 @@
               [ngClass]="{'error-border':!reguserForm.controls['password'].valid}" clearOnEdit="false"></ion-input>
             <div class="error-message"
               *ngIf="reguserForm.controls['password'].hasError('minlength')&&reguserForm.controls['password'].touched">
-              * Password Should not less than 6 digit</div>
+              * Password Should not less than 4 digit</div>
           </div>
         </div>
         <div class="submit-btn">
